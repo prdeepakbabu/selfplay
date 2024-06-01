@@ -1,7 +1,9 @@
-# MultiBot Simulation for Self-Play
+# MultiBot Simulation for Self-Play 🗣️🔄🗣️
 
 SelfPlay is a Python package that allows you to simulate conversations between multiple chatbots. The package includes an orchestrator bot to determine the order of responses based on a given goal.Introducing SelfPlay Project – a versatile and intelligent chatbot package designed to enhance your conversational AI capabilities. With features enabling multi-turn self-chat and seamless interaction between two chatbots, this package leverages the power of LLMs to deliver insightful and dynamic conversations. Perfect for developers, educators, and businesses looking to integrate advanced chatbot functionalities, My Chatbot Project offers robust logging, error handling, and easy customization to meet your unique needs.
+![Image](file-service://file-5Y9LbQeMBfPjl1mhtkbSpNJw)
 
+Here's the illustration of two chatbots engaging in self-play, designed to highlight their interaction in a modern tech environment. This visual can help enhance your GitHub README and provide a clear understanding of the self-play concept.
 ## Features
 
 - Simulate conversations among multiple bots
