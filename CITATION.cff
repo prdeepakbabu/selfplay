@@ -1,0 +1,8 @@
+@misc{selfplay2024,
+  author = {Deepak Babu, Piskala},
+  title = {Selfplay: A Python Framework for Role-Based Dialogue Simulation},
+  year = {2024},
+  howpublished = {\url{https://github.com/prdeepakbabu/selfplay}},
+  note = {Version 1.0.0},
+  doi = {10.5281/zenodo.13721990},
+}
