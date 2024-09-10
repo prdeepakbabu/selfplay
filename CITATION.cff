@@ -1,4 +1,4 @@
-@misc{selfplay2024,
+@software{selfplay2024,
   author = {Deepak Babu, Piskala},
   title = {Selfplay: A Python Framework for Role-Based Dialogue Simulation},
   year = {2024},
