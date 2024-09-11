@@ -76,3 +76,22 @@ response = teacher.interact(
 )
 print(response)
 ```
+## Contributing
+
+We welcome contributions to the Selfplay framework! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute, including submitting pull requests and reporting issues.
+
+To contribute:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes and commit them (`git commit -am 'Add new feature'`)
+4. Push the branch (`git push origin feature-branch`)
+5. Submit a pull request
+
+## Issues & Feedback
+
+Found a bug or have a suggestion? Open an issue [here](https://github.com/prdeepakbabu/selfplay/issues) to collaborate on improvements. We actively review and address community feedback.
+
+## Collaboration & Partnerships
+
+We’re open to collaborating with researchers and developers interested in extending Selfplay or integrating it into larger projects. Feel free to reach out via [prdeepak.babu@gmail.com] for discussions regarding joint development or research partnerships.
