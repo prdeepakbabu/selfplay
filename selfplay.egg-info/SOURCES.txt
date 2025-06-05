@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+selfplay/RolePlay.py
+selfplay/__init__.py
+selfplay/app_gradio.py
+selfplay/chatbot.py
+selfplay/provider_interface.py
+selfplay/templates.py
+selfplay.egg-info/PKG-INFO
+selfplay.egg-info/SOURCES.txt
+selfplay.egg-info/dependency_links.txt
+selfplay.egg-info/entry_points.txt
+selfplay.egg-info/requires.txt
+selfplay.egg-info/top_level.txt

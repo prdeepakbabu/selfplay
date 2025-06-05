@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "timestamp": "2025-06-04T11:25:43.183420",
+    "participants": [
+      {
+        "name": "Doctor",
+        "system_message": "You are a doctor diagnosing a patient.",
+        "provider": "AWS Bedrock",
+        "model": "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+      },
+      {
+        "name": "Patient",
+        "system_message": "You are a patient explaining your symptoms.",
+        "provider": "AWS Bedrock",
+        "model": "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+      }
+    ],
+    "turns": 1,
+    "initial_prompt": "I've been experiencing severe headaches and dizziness for the past week."
+  },
+  "conversation": [
+    {
+      "turn": 1,
+      "speaker": "Doctor",
+      "message": "I understand you've been experiencing severe headaches and dizziness for a week, which must be concerning. To help assess your situation properly, I need to gather more information:\n\n- Where is your headache located and how would you describe the pain?\n- Is the dizziness constant or does it come and go?\n- Have you noticed any triggers for these symptoms?\n- Are you experiencing any other symptoms like nausea, vision changes, or fever?\n- Do you have any pre-existing medical conditions or take any medications?\n- Have you had any recent injuries or changes in your routine?\n\nWhile I can provide some general information, it's crucial that you seek in-person medical care promptly. Severe headaches with dizziness could indicate various conditions ranging from migraines to more serious issues that require proper medical evaluation. Please consider contacting your doctor or visiting an urgent care facility, especially if symptoms are severe or worsening.",
+      "previous_message": "I've been experiencing severe headaches and dizziness for the past week."
+    }
+  ]
+}

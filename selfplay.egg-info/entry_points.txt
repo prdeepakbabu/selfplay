@@ -1,0 +1,3 @@
+[console_scripts]
+selfplay = selfplay.app:main
+selfplay-ui = selfplay.app_gradio:main
