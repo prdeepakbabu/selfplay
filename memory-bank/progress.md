@@ -7,12 +7,24 @@
 2. ✅ **Self-Chat**: Bots can engage in self-chat, maintaining context across multiple turns.
 3. ✅ **Bot Interaction**: Two different bots can interact with each other for a specified number of turns.
 4. ✅ **Memory Management**: Conversation history is maintained and can be used for context in responses.
-5. ✅ **Azure OpenAI Integration**: The system successfully integrates with Azure OpenAI for generating responses.
+5. ✅ **Multiple LLM Provider Integration**: The system integrates with Azure OpenAI and AWS Bedrock (Claude) for generating responses.
 6. ✅ **HTML Export**: Conversations can be exported as formatted HTML files.
 7. ✅ **Role Templates**: Predefined templates for common conversation scenarios are available.
 8. ✅ **Error Handling**: Basic error handling for API calls and file operations is implemented.
 9. ✅ **Logging**: System events and errors are logged for debugging purposes.
 10. ✅ **Auto-End Detection**: Conversations can automatically end when they reach a natural conclusion.
+
+### Social Simulation
+1. ✅ **Persona Database**: A database of diverse personas for use in social simulations.
+2. ✅ **Experiment Runner**: A framework for running experiments with personas.
+3. ✅ **Results Collection**: Tools for collecting and analyzing experiment results.
+4. ✅ **Survey Capability**: Support for conducting surveys with simulated personas.
+5. ✅ **A/B Testing**: Support for A/B testing with control and test groups.
+6. ✅ **Multivariate Testing**: Support for testing multiple message variants with the same personas.
+7. ✅ **Statistical Analysis**: Implementation of statistical tests for analyzing experiment results.
+8. ✅ **Data Visualization**: Tools for visualizing experiment results.
+9. ✅ **Comprehensive Data Collection**: Collection of persona attributes and response data for detailed analysis.
+10. ✅ **Randomization**: Support for randomizing message order to control for order effects.
 
 ### Documentation
 1. ✅ **README**: Basic usage instructions and examples are provided.
@@ -22,11 +34,18 @@
 ## What's Left to Build
 
 ### Core Functionality Enhancements
-1. 🔄 **API Provider Flexibility**: Support for multiple LLM providers beyond Azure OpenAI.
+1. ✅ **API Provider Flexibility**: Support for multiple LLM providers including Azure OpenAI and AWS Bedrock (Claude).
 2. 🔄 **Advanced Memory Management**: More robust storage solutions for conversation history.
 3. 🔄 **User-Defined Templates**: Allow users to create and save their own templates.
 4. 🔄 **Additional Export Formats**: Support for exporting conversations in formats beyond HTML.
-5. 🔄 **Conversation Analysis Tools**: Tools for analyzing and visualizing conversation patterns.
+5. ✅ **Conversation Analysis Tools**: Tools for analyzing and visualizing conversation patterns and experiment results.
+
+### Advanced Social Simulation
+1. 🔄 **Complex Experimental Designs**: Support for factorial designs, repeated measures, and other advanced experimental paradigms.
+2. 🔄 **Advanced Statistical Analyses**: Implementation of more sophisticated statistical tests and analyses.
+3. 🔄 **Persona Clustering**: Tools for clustering and segmenting personas based on attributes and responses.
+4. 🔄 **Custom Persona Creation**: Support for creating and importing custom personas.
+5. 🔄 **External Tool Integration**: Integration with external data analysis tools and formats.
 
 ### Documentation Improvements
 1. 🔄 **API Documentation**: Detailed documentation for all classes, methods, and parameters.
@@ -49,8 +68,10 @@ The memory bank has been initialized with comprehensive documentation of the pro
 1. **Token Limits**: For very long conversations, the token limit of the API may be reached, causing truncation of context.
 2. **Error Recovery**: While errors are caught and logged, the system may not always recover gracefully from certain API failures.
 3. **Template Flexibility**: The current template system is static and doesn't allow for easy user customization.
-4. **API Dependency**: The system is currently tightly coupled with Azure OpenAI, limiting flexibility.
+4. **API Provider Limitations**: While the system now supports multiple providers, adding new providers requires code changes.
 5. **Memory Persistence**: In-memory storage means conversation history is lost when the program terminates unless explicitly saved.
+6. **Experiment Scale**: Large-scale experiments with many personas may be limited by API rate limits and costs.
+7. **Statistical Analysis Depth**: Current statistical analyses are limited to basic tests and may not cover all experimental designs.
 
 ## Evolution of Project Decisions
 
@@ -92,7 +113,21 @@ The memory bank has been initialized with comprehensive documentation of the pro
 - 🔄 Contributing guidelines
 
 ### Milestone 4: Advanced Features 🔄
-- 🔄 Multiple API providers
+- ✅ Multiple API providers
 - 🔄 Advanced memory management
 - 🔄 User-defined templates
-- 🔄 Conversation analysis tools
+- ✅ Conversation analysis tools
+
+### Milestone 5: Social Simulation ✅
+- ✅ Persona database
+- ✅ Experiment runner
+- ✅ Survey capability
+- ✅ A/B testing
+- ✅ Multivariate testing
+- ✅ Statistical analysis
+
+### Milestone 6: Advanced Social Simulation 🔄
+- 🔄 Complex experimental designs
+- 🔄 Advanced statistical analyses
+- 🔄 Persona clustering and segmentation
+- 🔄 Integration with external analysis tools

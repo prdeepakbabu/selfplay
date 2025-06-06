@@ -78,3 +78,9 @@ ehthumbs.db
 
 #cline
 Memory-bank/
+memory-bank/
+
+#data
+*.csv
+*.json
+

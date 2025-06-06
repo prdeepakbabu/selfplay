@@ -39,7 +39,9 @@ def main():
     conversation_history = bot1.interact(
         bot2,
         start=initial_message,
-        num_turns=num_turns,
+        #num_turns=num_turns,
+        auto_end=True,
+        max_turns=4,
         filename="/Users/badeepak/Downloads/ts.html"
     )
     

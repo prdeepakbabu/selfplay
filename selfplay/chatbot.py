@@ -1,20 +1,6 @@
 import os
 import logging
 import json
-<<<<<<< HEAD
-from openai import AzureOpenAI
-import markdown2
-
-class Chatbot:
-    def __init__(self, name, sys_msg):
-        self.name = name
-        self.sys_msg = sys_msg
-        self.memory = []
-        api_key = os.getenv("AZURE_OPENAI_API_KEY")
-        azure_endpoint = os.getenv("AZURE_OPENAI_API_ENDPOINT")
-        api_version = os.getenv("AZURE_OPENAI_API_VERSION")        
-        self.client = AzureOpenAI(api_version=api_version, azure_endpoint=azure_endpoint, api_key=api_key)
-=======
 import markdown2
 from .provider_interface import get_provider, AzureOpenAIProvider
 
@@ -37,16 +23,11 @@ class Chatbot:
         self.memory = []
         
         # Set up logging
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
         # Suppress INFO logs from httpx
         httpx_logger = logging.getLogger("httpx")
         httpx_logger.setLevel(logging.WARNING)
-<<<<<<< HEAD
-
-    def chat(self, user_msg, use_memory=True):
-=======
         
         # Initialize the provider
         try:
@@ -83,19 +64,10 @@ class Chatbot:
         Returns:
             The chatbot's response.
         """
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
         try:
             self._add_to_memory("user", user_msg)
             messages = self._construct_messages(user_msg, use_memory)
 
-<<<<<<< HEAD
-            response = self.client.chat.completions.create(
-                model="gpt-4",  # model = "deployment_name"
-                messages=messages
-            )
-
-            response_msg = response.choices[0].message.content
-=======
             response_msg = self.provider.generate_response(messages, **kwargs)
             
             # Ensure we're only storing the text content in memory
@@ -112,7 +84,6 @@ class Chatbot:
                     # If we can't parse the JSON, just use the original response
                     pass
             
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
             self._add_to_memory("assistant", response_msg)
             return response_msg
 
@@ -134,9 +105,6 @@ class Chatbot:
     def __repr__(self):
         if not self.memory:
             return "NOTHING TO REMEMBER"
-<<<<<<< HEAD
-        return "\n".join([f"{self.name if m['role'] == 'assistant' else 'USER'}: {m['content']}" for m in self.memory])
-=======
         
         # Define ANSI color codes for better visualization
         USER_COLOR = "\033[94m"  # Blue
@@ -149,16 +117,10 @@ class Chatbot:
             else f"{USER_COLOR}USER{RESET_COLOR}: {m['content']}" 
             for m in self.memory
         ])
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
     
     def show_memory(self):
         if not self.memory:
             return "MEMORY EMPTY ERROR"
-<<<<<<< HEAD
-        for msg in self.memory:
-            role = self.name if msg["role"] == "assistant" else "USER"
-            print(f"{role}: {msg['content']}")
-=======
         
         # Define ANSI color codes for better visualization
         USER_COLOR = "\033[94m"  # Blue
@@ -170,7 +132,6 @@ class Chatbot:
                 print(f"{ASSISTANT_COLOR}{self.name}{RESET_COLOR}: {msg['content']}")
             else:
                 print(f"{USER_COLOR}USER{RESET_COLOR}: {msg['content']}")
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
 
     def reset_memory(self):
         self.memory = []
@@ -195,33 +156,6 @@ class Chatbot:
     
     def get_num_turns(self):
         return len(self.memory) // 2
-<<<<<<< HEAD
-    
-    def _save_conversation_to_markdown(self, conversation_history, filename):
-        with open(filename, 'w') as file:
-            file.write("# Conversation History\n\n")
-            file.write(f'<div style="margin-bottom: 10px;">')
-            file.write(f'<span style="color: blue; font-weight: bold;">{conversation_history[1][0]}</span>: ')
-            file.write(f'<span style="background-color: #f1f1f1; padding: 10px; border-radius: 5px; display: inline-block; max-width: 80%; font-size: 14px; ">{conversation_history[0][1]}</span>')
-            file.write('</div>\n\n')
-            i=0
-            for turn in conversation_history:
-                bot_name, user_msg, response = turn
-                if i%2 == 0:
-                    file.write(f'<div style="margin-bottom: 10px;">')
-                    file.write(f'<span style="color: green; font-weight: bold;">{bot_name}</span>: ')
-                    file.write(f'<span style="background-color: #e0ffe0;  padding: 10px; border-radius: 5px; display: inline-block; max-width: 80%; font-size: 14px; ">{response}</span>')
-                    file.write('</div>\n\n')
-                else:
-                    file.write(f'<div style="margin-bottom: 10px;">')
-                    file.write(f'<span style="color: blue; font-weight: bold;">{bot_name}</span>: ')
-                    file.write(f'<span style="background-color: #f1f1f1;  padding: 10px; border-radius: 5px; display: inline-block; max-width: 80%; font-size: 14px; ">{response}</span>')
-                    file.write('</div>\n\n')  
-                i   = i + 1                 
-    
-    def interact(self, other_bot, num_turns=10, start="Hello! How can I assist you today?",filename=None):
-        conversation_history = []
-=======
         
     def conversation_to_json(self, conversation_history, other_bot=None):
         """
@@ -432,7 +366,6 @@ class Chatbot:
             actual_max_turns = max_turns if max_turns is not None else num_turns
         else:
             actual_max_turns = num_turns
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
 
         # Ensure the first bot starts the conversation
         first_bot = self
@@ -441,16 +374,6 @@ class Chatbot:
         # Initial message to start the conversation
         user_msg = start
 
-<<<<<<< HEAD
-        # First bot initiates the conversation
-        response = first_bot.chat(user_msg)
-        conversation_history.append((first_bot.name, user_msg, response))
-        print(f"{second_bot.name}: {user_msg}")
-        print(f"{first_bot.name}: {response}\n")
-
-        # Continue the conversation for the remaining turns
-        for _ in range(num_turns - 1):
-=======
         # Define ANSI color codes for better terminal visualization
         USER_COLOR = "\033[94m"  # Blue
         ASSISTANT_COLOR = "\033[92m"  # Green
@@ -471,15 +394,11 @@ class Chatbot:
                     print(f"Conversation ended automatically after {turn} turns. Reason: {reason} (confidence: {score:.2f})")
                     break
                     
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
             user_msg = response
 
             # Second bot responds
             response = second_bot.chat(user_msg)
             conversation_history.append((second_bot.name, user_msg, response))
-<<<<<<< HEAD
-            print(f"{second_bot.name}: {response}\n")
-=======
             print(f"{USER_COLOR}{second_bot.name}{RESET_COLOR}: {response}\n")
 
             # Check again after second bot's response
@@ -488,27 +407,18 @@ class Chatbot:
                 if should_end:
                     print(f"Conversation ended automatically after {turn} turns. Reason: {reason} (confidence: {score:.2f})")
                     break
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
 
             user_msg = response
 
             # First bot responds
             response = first_bot.chat(user_msg)
             conversation_history.append((first_bot.name, user_msg, response))
-<<<<<<< HEAD
-            print(f"{first_bot.name}: {response}\n")
-=======
             print(f"{ASSISTANT_COLOR}{first_bot.name}{RESET_COLOR}: {response}\n")
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
         
         # Save conversation to a markdown file if filename is provided
         if filename:
             self._save_conversation_to_markdown(conversation_history, filename)
             print(f"Conversation saved to {filename}")
-<<<<<<< HEAD
-
-        return conversation_history
-=======
         
         # Output JSON if requested
         if output_json:
@@ -522,4 +432,3 @@ class Chatbot:
             print(f"Conversation saved to JSON: {json_filename}")
 
         return conversation_history
->>>>>>> 85e1a4d (enhanced with an app and also add features like timeout)
